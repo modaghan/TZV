@@ -390,7 +390,6 @@ namespace TZV.ConUI {
                 return myLowerIndex;
             }
         }
-
         #endregion
 
         #region Heavy Lifting Members

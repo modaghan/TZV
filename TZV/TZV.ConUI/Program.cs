@@ -10,7 +10,7 @@ namespace TZV.ConUI
     {
         static void Main(string[] args)
         {
-            Question9.Solution();
+            Question6.Solution();
         }
     }
 }

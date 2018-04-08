@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Games\2018\Question5.cs" />
+    <Compile Include="Games\2018\Question6.cs" />
     <Compile Include="Games\2018\Question8.cs" />
     <Compile Include="Games\2018\Question9.cs" />
     <Compile Include="Helpers\Combinations\Combinations.cs" />
@@ -53,15 +54,14 @@
     <Compile Include="Helpers\Combinations\SmallPrimeUtility.cs" />
     <Compile Include="Helpers\Combinations\Variations.cs" />
     <Compile Include="Helpers\Graphs\Graph.cs" />
+    <Compile Include="Models\Cube.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
