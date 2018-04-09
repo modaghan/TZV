@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TZV.ConUI
 {
-    class Quesion8
+    public class Question8
     {
         static bool[] matrix = new bool[] { false, true, false, false, false, true, false, false, false };
         public static void Solution()
@@ -19,7 +19,6 @@ namespace TZV.ConUI
                 {
                     if (Test(row))
                     {
-                        row.Reverse();
                         foreach (int num in row)
                         {
                             Console.Write(num + ", ");

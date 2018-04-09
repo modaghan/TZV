@@ -28,34 +28,61 @@ namespace TZV.ConUI
                 {false, false, false}
             }
         };
-
+        static List<int[]> Coors = new List<int[]>();
         static List<List<int>> rows = new List<List<int>>();
         public static void Solution()
         {
-
-            Variations<int> variations = new Variations<int>(new List<int> { 0, 1, 2, 0, 1, 2, 0, 1, 2 }, 3);
+            for (int l = 0; l < 3; l++)
+            {
+                for (int x = 0; x < 3; x++)
+                {
+                    for (int y = 0; y < 3; y++)
+                    {
+                        Coors.Add(new int[3] { l, x, y });
+                    }
+                }
+            }
+            Combinations<int> variations = new Combinations<int>(new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 }, 6);
+            long part = variations.Count / 100;
+            int index = -1;
             foreach (var item in variations)
             {
-                List<int> row = new List<int>();
-                foreach (var i in item)
+                ++index;
+                List<bool[,]> generatedModel = new List<bool[,]>()
                 {
-                    row.Add(i);
+                    new bool[,]{
+                        {false, false, false},
+                        {false, false, false},
+                        {false, false, false}
+                    },
+                    new bool[,]{
+                        {false, false,false },
+                        {false, false, false},
+                        {false, false, false}
+                    },
+                    new bool[,]{
+                        {false, false,false },
+                        {false, false, false},
+                        {false, false, false}
+                    }
+                };
+
+                foreach (int coorIndex in item)
+                {
+                    int[] coor = Coors[coorIndex];
+                    generatedModel[coor[0]][coor[1], coor[2]] = true;
                 }
-                rows.Add(row);
-            }
-            for (int i = 0; i < loopCount; i++)
-            {
-                List<bool[,]> generatedModel = CreateCube(Cube);
+
                 if (Test(generatedModel))
                     SolutionPool.Add(generatedModel);
-                if (i % (loopCount / 100) == 0)
+                if (index % part == 0)
                     Console.Write("|");
-
-
             }
+
             Console.WriteLine(SolutionPool.Count);
             Console.Read();
         }
+        
 
         private static List<bool[,]> CreateCube(List<bool[,]> generatedModel)
         {
@@ -116,7 +143,7 @@ namespace TZV.ConUI
                         }
                     }
                 }
-                if (similarityCount >= 6)
+                if (similarityCount == 27)
                     return false;
                 else if (HasAloneCube(cube))
                     return false;
